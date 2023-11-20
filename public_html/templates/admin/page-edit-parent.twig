@@ -1,0 +1,24 @@
+{% macro parentTree(tree) %}
+
+    {% for branch in tree %}
+	
+		<option value="{{ branch.id }}" {{ branch.selected }}>
+
+            {% for space in 1..branch.level %}
+                -
+            {% endfor %}
+            
+            {{ branch.title }} 
+			
+		</option>
+		
+		{% if branch.sub %}
+				
+            {{ _self.parentTree(branch.sub) }}	
+			
+		{% endif %}
+		
+
+    {% endfor %}
+	
+{% endmacro %}

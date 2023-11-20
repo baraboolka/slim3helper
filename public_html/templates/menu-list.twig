@@ -1,0 +1,26 @@
+{% macro pageTree(menu) %}
+
+    {% for branch in menu %}
+    <div class="content-list-row content-list-row-page">
+        <div class="content-list-row-level">
+        	<span class="material-icons">
+				chevron_right
+			</span>
+		</div>
+
+      	<div class="content-list-row-title">
+        	<a href="/page/{{ branch.alias }}" class="{{ branch.selected }}">{{ branch.title }}</a>
+      	</div>
+
+		<div class="content-list-row-more" data-id="{{ branch.id }}"></div>
+
+		{% if branch.sub %}
+			<div class="content-list-row-sub" id="content-list-row-sub-{{ branch.id }}">
+				{{ _self.pageTree(branch.sub) }}	
+			</div>
+		{% endif %}
+		
+    </div>
+    {% endfor %}
+	
+{% endmacro %}

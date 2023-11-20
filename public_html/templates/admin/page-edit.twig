@@ -1,0 +1,60 @@
+{% extends "admin/index.twig" %}
+
+{% block content %}
+    <div id="content">
+        <h2 class="flex-container">
+            <span class="material-icons">settings</span>
+            <span>Component: pages</span>
+        </h2>
+        <h3>Add/edit</h3>
+        
+        <form action="/admin/page/save" method="post" class="content-form">
+            <input type="hidden" name="page-id" value="{{ page.id }}">
+   
+            <label for="page-alias">alias</label>
+            <input type="text" name="page-alias" value="{{ page.alias }}">
+
+            <label for="page-title">title</label>
+            <input type="text" name="page-title" value="{{ page.title }}">
+
+            <label for="page-parent">parent</label>
+            <select name="page-parent" class="content-form-select">
+                <option value="0">Root</option>
+
+                {% import "admin/page-edit-parent.twig" as macros %}
+			    {{ macros.parentTree(tree) }}
+
+            </select>
+
+            <div class="content-form-helper">
+                <label for="page-text">text</label>
+
+                <div class="content-form-helper-panel">
+                    <span id="content-form-helper-btn">[ add "pre" + "code" tags for ] </span>
+                    <select id="content-form-helper-list">
+                        <option value="php">php</option>
+                        <option value="javascript">js</option>
+                        <option value="css">css</option>
+                        <option value="html">html</option>
+                    </select>
+                </div>
+            </div>
+            <textarea name="page-text" id="content-form-helper-textarea">{{ page.text }}</textarea>
+
+            <label for="page-num">num</label>
+            <input type="text" name="page-num" value="{{ page.num }}">
+
+            <input type="hidden" name="{{ csrfProtection.nameKey }}" value="{{ csrfProtection.name }}">
+            <input type="hidden" name="{{ csrfProtection.valueKey }}" value="{{ csrfProtection.value }}">
+
+            <input type="submit" value="save">
+        </form>
+    </div>
+    
+{% endblock %}
+
+
+
+
+
+

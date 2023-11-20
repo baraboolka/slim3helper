@@ -1,0 +1,16 @@
+{% include 'header.twig' %}
+
+<div id="main">
+
+    {% include 'menu.twig' %}
+
+    <div id="content">
+        {% block content %}
+            <!-- content -->
+        {% endblock %}
+    </div>
+</div>
+
+{% include 'footer.twig' %}
+
+

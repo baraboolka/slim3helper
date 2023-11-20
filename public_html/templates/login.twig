@@ -1,0 +1,25 @@
+{% include 'header.twig' %}
+
+<div id="main">
+
+    {% include 'menu.twig' %}
+
+    <div id="content">
+        <form action="/login" method="post" class="login-form">
+            <label for="login">login</label>
+            <input type="text" name="login" autocomplete="off">
+        
+            <label for="password">password</label>
+            <input type="password" name="password" autocomplete="off">
+        
+            <input type="hidden" name="{{ csrfProtection.nameKey }}" value="{{ csrfProtection.name }}">
+            <input type="hidden" name="{{ csrfProtection.valueKey }}" value="{{ csrfProtection.value }}">
+
+            <input type="submit" value="login">
+        </form>
+    </div>
+
+</div>
+
+
+{% include 'footer.twig' %}

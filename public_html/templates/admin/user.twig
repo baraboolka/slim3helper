@@ -1,0 +1,31 @@
+{% extends "admin/index.twig" %}
+
+{% block content %}
+    <div id="content">
+        <h2 class="flex-container">
+            <span class="material-icons">settings</span>
+            <span>Component: user</span>
+        </h2>
+        <h3>Edit user data</h3>
+        
+        <form action="/admin/user/save" method="post" class="content-form">
+
+            <label for="page-alias">login</label>
+            <input type="text" name="login" value="{{ userName }}">
+
+            <label for="page-title">password</label>
+            <input type="text" name="password">
+
+            <input type="hidden" name="{{ csrfProtection.nameKey }}" value="{{ csrfProtection.name }}">
+            <input type="hidden" name="{{ csrfProtection.valueKey }}" value="{{ csrfProtection.value }}">
+
+            <input type="submit" value="edit">
+        </form>
+    </div>  
+{% endblock %}
+
+
+
+
+
+

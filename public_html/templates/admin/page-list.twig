@@ -1,0 +1,31 @@
+{% macro pageTree(tree) %}
+
+    {% for branch in tree %}
+    <div class="content-list-row">
+        <div class="content-list-row-level">
+        	<span class="material-icons">
+				subdirectory_arrow_right
+			</span>
+		</div>
+
+      	<div class="content-list-row-title">
+        	<a href="/admin/page/edit/{{ branch.id }}" title="id:{{ branch.id }}, alias: /{{ branch.alias }}, level: {{ branch.level }}">{{ branch.title }}</a>
+      	</div>
+      
+		<div class="content-list-row-sidebar">
+        	<a class="content-list-sidebar-delete" href="/admin/page/delete/{{ branch.id }}" onclick="if(!confirm('delete?')) return false;">
+          	<span class="material-icons">
+            	close
+          	</span>
+        	</a>
+      	</div>
+
+		{% if branch.sub %}
+				
+			{{ _self.pageTree(branch.sub) }}	
+	  
+	  	{% endif %}
+    </div>
+    {% endfor %}
+	
+{% endmacro %}

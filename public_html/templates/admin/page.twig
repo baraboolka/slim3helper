@@ -1,0 +1,27 @@
+{% extends "admin/index.twig" %}
+
+{% block content %}
+	<div id="content">
+		<h2 class="flex-container">
+			<span class="material-icons">settings</span>
+			<span>Component: pages</span>
+		</h2>
+		<h4>
+			<a class="flex-container" href="/admin/page/add">
+				<span class="material-icons">add</span>
+				<span>add</span> 
+			</a>
+		</h4>
+		<div id="content-list">
+			{% import "admin/page-list.twig" as macros %}
+			{{ macros.pageTree(tree) }}
+		</div>
+	</div>
+	
+{% endblock %}
+
+
+
+
+
+

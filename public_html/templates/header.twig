@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/css/prism.css" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet">
+    <!-- google icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Helper: Slim 3</title>
+</head>
+<body>
+    <header>
+        <div id="header-container">
+            <a id="header-menu-trigger" href="javascript:void(0);" onclick="document.querySelector('#menu').classList.toggle('active')">
+                <span class="material-icons">view_headline</span>
+            </a>
+
+            <a id="header-logo" href="/">
+                <span>Helper: Slim 3</span>
+            </a>
+
+            <div id="header-user">
+                {% if userName %}
+                    <a href="/admin/page">{{ userName }}</a> | <a href="/logout">out</a>
+                {% else %}
+                    guest | <a href="/login">login</a>
+                {% endif %}     
+            </div>
+       
+        </div>
+    </header>

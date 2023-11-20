@@ -1,0 +1,31 @@
+{% include '/admin/header.twig' %}
+
+<div id="admin-main">
+
+	<div id="admin-main-title">Admin panel</div>
+
+	<div id="admin-main-alert">
+		<div id="admin-main-alert-text">{{ alert }}</div>
+
+		<div id="admin-main-alert-close">
+			<span class="material-icons">close</span>
+		</div>
+	</div>
+	
+	<div id="admin-main-container">
+		{% include '/admin/menu.twig' %}
+
+		{% block content %}
+		<!-- content here -->
+		{% endblock %}
+	</div>
+	
+</div>
+
+{% include '/admin/footer.twig' %}
+
+
+
+
+
+
