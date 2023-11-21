@@ -32,4 +32,4 @@ Hello. This is a simple CRUD-system, based on / explaining the basics of working
 
 ## License
 
-[MIT license](https://github.com//MIT-LICENSE.txt)
+[MIT license](https://github.com/baraboolka/slim3helper/blob/master/LICENSE)
