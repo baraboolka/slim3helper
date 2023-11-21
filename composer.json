@@ -1,5 +1,4 @@
 {
-    "name": "baraboolka/slim3helper",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
